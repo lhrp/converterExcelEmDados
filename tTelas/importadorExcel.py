@@ -125,16 +125,17 @@ def excelParaCsv(arquivoExcelConsumir, arquivoCSVGerado):
 
         nomeTabela = nomeAbaExcel.sheetnames[0]
 
-        print(nomeTabela)
+        #print(nomeTabela)
 
         # Salva os dados em um arquivo CSV, tratando para aceitar possíveis caracteres especiais
         arquivo.to_csv(arquivoCSVGerado, index=False, encoding='utf-8-sig')
         
         notify("Status da Conversão", f"Conversão concluída. Arquivo CSV salvo como {arquivoCSVGerado}")
-        print(f"Conversão concluída. Arquivo CSV salvo como {arquivoCSVGerado}")
+        #print(f"Conversão concluída. Arquivo CSV salvo como {arquivoCSVGerado}")
     
     except Exception as e:
-        print(f"Ocorreu um erro: {str(e)}")
+        #print(f"Ocorreu um erro: {str(e)}")
+        pass
 
 # Função para ler o arquivo CSV e inserir os dados em uma tabela SQLite
 def inserirDadosBDSQLite(arquivoCSVGerado, arquivoBDSQLite, nomeTabela):
@@ -149,13 +150,14 @@ def inserirDadosBDSQLite(arquivoCSVGerado, arquivoBDSQLite, nomeTabela):
         arquivo.to_sql(nomeTabela, conn, if_exists='replace', index=False)
 
         notify("BD Local atualizado", f"Dados inseridos com sucesso na tabela '{nomeTabela}' do banco de dados '{arquivoBDSQLite}'")
-        print(f"Dados inseridos com sucesso na tabela '{nomeTabela}' do banco de dados '{arquivoBDSQLite}'")
+        #print(f"Dados inseridos com sucesso na tabela '{nomeTabela}' do banco de dados '{arquivoBDSQLite}'")
 
         # Fecha a conexão com o banco de dados
         conn.close()
 
     except Exception as e:
-        print(f"Ocorreu um erro: {str(e)}")
+        #print(f"Ocorreu um erro: {str(e)}")
+        pass
 
 # Função para ler o arquivo CSV e inserir os dados em uma tabela MySQL
 def inserirDadosBDMySQL(arquivoCSVGerado, hostMySQL, usuarioMySQL, senhaMySQL, bancoMySQL, nomeTabela):       
@@ -187,14 +189,15 @@ def inserirDadosBDMySQL(arquivoCSVGerado, hostMySQL, usuarioMySQL, senhaMySQL, b
 
         conn.commit()
         notify("BD MySQL atualizado", f"Dados inseridos com sucesso na tabela '{nomeTabela}' do banco de dados MySQL")
-        print(f"Dados inseridos com sucesso na tabela '{nomeTabela}' do banco de dados MySQL")
+        #print(f"Dados inseridos com sucesso na tabela '{nomeTabela}' do banco de dados MySQL")
 
         # Fecha a conexão com o banco de dados MySQL
         cursor.close()
         conn.close()
 
     except Exception as e:
-        print(f"Ocorreu um erro: {str(e)}")
+        #print(f"Ocorreu um erro: {str(e)}")
+        pass
 
 def inserirDadosBDSQLServer(arquivoCSVGerado, nomeTabela):
     try:
@@ -220,14 +223,15 @@ def inserirDadosBDSQLServer(arquivoCSVGerado, nomeTabela):
 
         conn.commit()
         notify("BD SQL Server atualizado", f"Dados inseridos com sucesso na tabela '{nomeTabela}' do banco de dados SQL Server")
-        print(f"Dados inseridos com sucesso na tabela '{nomeTabela}' do banco de dados SQL Server")
+        #print(f"Dados inseridos com sucesso na tabela '{nomeTabela}' do banco de dados SQL Server")
 
         # Fecha a conexão com o banco de dados SQL Server
         cursor.close()
         conn.close()
 
     except Exception as e:
-        print(f"Ocorreu um erro: {str(e)}")
+        #print(f"Ocorreu um erro: {str(e)}")
+        pass
 
 labelDescricao = ttk.Label(frame1, text="Importar dados para:")
 labelDescricao.place(relx=0.32, rely=0.12)

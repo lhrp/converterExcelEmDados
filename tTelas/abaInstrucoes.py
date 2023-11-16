@@ -25,3 +25,5 @@ label05 = ttk.Label(frame5, text="5 - Durante o processamento dos dados, serão 
 label05.place(relx=0.05, rely=0.65, relheight=0.1)
 label06 = ttk.Label(frame5, text="6 - O arquivo a ser importado deve seguir o padrão \ndo arquivo contido na pasta cConsumir;", font=ctk.CTkFont(size=10, weight="bold"))
 label06.place(relx=0.05, rely=0.75, relheight=0.1)
+label07 = ttk.Label(frame5, text="7 - Sempre será gerado o arquivo CSV;", font=ctk.CTkFont(size=10, weight="bold"))
+label07.place(relx=0.05, rely=0.85, relheight=0.1)
